@@ -206,7 +206,6 @@ To run against a real CSE:
 
 cd deploy
 
-python -- version
 
 pip install acmecse
 
