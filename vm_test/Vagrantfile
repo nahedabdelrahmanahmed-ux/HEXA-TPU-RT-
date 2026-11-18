@@ -1,0 +1,12 @@
+# vm_test/Vagrantfile  --  `vagrant up && vagrant ssh -c "cd /project && ./vm_test/run_vm_tests.sh all"`
+Vagrant.configure("2") do |c|
+  c.vm.box = "bento/ubuntu-24.04"
+  c.vm.hostname = "hexa-tpu-vm"
+  c.vm.network "forwarded_port", guest: 8000, host: 8000   # committee report
+  c.vm.synced_folder "..", "/project"
+  c.vm.provider "virtualbox" do |v|
+    v.cpus = 2          # fixed resources => reproducible timing numbers
+    v.memory = 2048
+  end
+  c.vm.provision "shell", path: "provision.sh", privileged: false
+end

@@ -1,0 +1,11 @@
+# Connection profile for the mobius4-browser TUI (oneM2M resource browser) pointing at the ACME CSE that
+# deploy/run_acme_cse.sh starts: HTTP binding on port 8080, CSE-ID id-in, CSEBase cse-in, admin CAdmin,
+# no MQTT broker (the browser then watches by polling). Values are checked against the deploy script by
+# tests/test_cse_inspection.py. Copy into the browser's config file ONLY if you have none
+# (Linux ~/.config/mobius4-browser/config.yaml, macOS ~/Library/Application Support/mobius4-browser/config.yaml,
+# Windows %LOCALAPPDATA%\mobius4-browser\mobius4-browser\config.yaml), otherwise append the `acme:` profile.
+default_profile: acme
+profiles:
+  acme:
+    cse: {host: localhost, port: 8080, cse_id: id-in, cb_rn: cse-in}
+    originator: CAdmin

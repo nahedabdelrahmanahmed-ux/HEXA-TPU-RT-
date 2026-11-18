@@ -1,0 +1,289 @@
+{
+  "M1_reflex_latency": {
+    "aviation": {
+      "n_channels": 3,
+      "model_us": 0.04,
+      "code_us": 0.04,
+      "deadline_margin_x": 25000.0
+    },
+    "water": {
+      "n_channels": 2,
+      "model_us": 0.03,
+      "code_us": 0.030000000000000002,
+      "deadline_margin_x": 33333.333333333336
+    },
+    "max_channels_within_1ms": 99999
+  },
+  "M2_daa": {
+    "agreement_with_code_pct": 100.0,
+    "samples": 100000,
+    "V_saturation_m": 500.0,
+    "critical_range_m_table": {
+      "v=30m/s": {
+        "V=3000m": 60.0,
+        "V=1500m": 60.0,
+        "V=1000m": 90.0,
+        "V=500m": 180.0,
+        "V=200m": 180.0
+      },
+      "v=60m/s": {
+        "V=3000m": 120.0,
+        "V=1500m": 120.0,
+        "V=1000m": 180.0,
+        "V=500m": 360.0,
+        "V=200m": 360.0
+      },
+      "v=100m/s": {
+        "V=3000m": 200.0,
+        "V=1500m": 200.0,
+        "V=1000m": 300.0,
+        "V=500m": 600.0,
+        "V=200m": 600.0
+      }
+    },
+    "max_margin_s": 6.0
+  },
+  "M3_water_trigger": {
+    "agreement_with_code_pct": 100.0,
+    "crossover_dt_ms": 37.5,
+    "effective_threshold_method_matches_formula": true,
+    "code_crossover_dt_ms": 37.5,
+    "min_drop_at_dt_10ms_kpa": 15.0,
+    "effective_rate_at_dt_10ms_kpa_s": 1500.0
+  },
+  "M4_urllc": {
+    "nominal": {
+      "params": {
+        "mean_ms": 2.5,
+        "jitter_ms": 0.6,
+        "p_retx": 0.001,
+        "sigma_ln": 0.24
+      },
+      "model": {
+        "mean_ms": 2.5796198721837458,
+        "p99_ms": 4.410332868861552,
+        "sla_pct": 99.98374814145711,
+        "violation_prob": 0.00016251858542881692
+      },
+      "monte_carlo": {
+        "mean": 2.579732321133061,
+        "p99": 4.406150649463546,
+        "sla": 99.9845
+      }
+    },
+    "degraded": {
+      "params": {
+        "mean_ms": 9.0,
+        "jitter_ms": 3.0,
+        "p_retx": 0.3,
+        "sigma_ln": 0.3333333333333333
+      },
+      "model": {
+        "mean_ms": 13.568394613694768,
+        "p99_ms": 32.685988660733926,
+        "sla_pct": 43.68211075305833,
+        "violation_prob": 0.5631788924694168
+      },
+      "monte_carlo": {
+        "mean": 13.575213249806916,
+        "p99": 32.64682635266833,
+        "sla": 43.571
+      }
+    }
+  },
+  "M5_reflex_vs_network": {
+    "network_mean_ms": 2.5796198721837458,
+    "reflex_av_us": 0.04,
+    "ratio_net_over_reflex": 64490.49680459365,
+    "blind_distance_m": {
+      "v=30": {
+        "reflex_m": 1.2e-06,
+        "network_m": 0.07738859616551237
+      },
+      "v=60": {
+        "reflex_m": 2.4e-06,
+        "network_m": 0.15477719233102474
+      },
+      "v=100": {
+        "reflex_m": 4e-06,
+        "network_m": 0.2579619872183746
+      }
+    },
+    "water_wave_blind_m": {
+      "reflex_m": 3.6e-05,
+      "network_m": 3.095543846620495
+    }
+  },
+  "M6_joukowsky": {
+    "kpa_per_lps": 6.0,
+    "Q_star_lps": 83.33333333333333,
+    "grid_mismatches": 0,
+    "closure_grid_mismatches": 0,
+    "surge_by_action_kpa": {
+      "hold_flow": 0.0,
+      "gradual_flow_reduction": 29.999999999999996,
+      "reroute_via_secondary_main": 90.0,
+      "staged_valve_shutdown": 40.0,
+      "controlled_full_shutdown": 33.333333333333336,
+      "emergency_full_shutdown": 600.0
+    },
+    "critical_closure_time_s": 1.6666666666666667,
+    "min_safe_closure_time_for_100lps_s": 2.0,
+    "surge_100lps_30s_closure_kpa": 33.333333333333336
+  },
+  "M7_bat": {
+    "n": 15,
+    "Sxx": 280.0,
+    "slope_std_theory": 0.11952286093343936,
+    "slope_std_mc": 0.1193409697251348,
+    "slope_mean_mc": 2.9985044693585814,
+    "slope_true": 3.0,
+    "rul_true_windows": 22.666666666666668,
+    "rul_mean_mc": 22.72843925503707,
+    "rul_std_mc": 1.2016218046522817,
+    "rul_cv_delta_method": 0.03984095364447979,
+    "rul_cv_full_delta_method": 0.052694856998416785,
+    "rul_cv_before_fix_raw_last_value": 0.05858963771247028,
+    "rul_cv_mc": 0.05286864580399988,
+    "min_detectable_slope_3sigma": 0.35856858280031806,
+    "min_detectable_slope_in_sigma_units": 0.17928429140015903
+  },
+  "M8_squid": {
+    "grid_points": 1001,
+    "mismatches_vs_code": 0,
+    "regions_with_veto": [
+      [
+        "hold_flow",
+        0.0,
+        0.099
+      ],
+      [
+        "gradual_flow_reduction",
+        0.1,
+        0.175
+      ],
+      [
+        "reroute_via_secondary_main",
+        0.176,
+        0.295
+      ],
+      [
+        "staged_valve_shutdown",
+        0.296,
+        0.418
+      ],
+      [
+        "controlled_full_shutdown",
+        0.419,
+        1.0
+      ]
+    ],
+    "regions_without_veto": [
+      [
+        "hold_flow",
+        0.0,
+        0.099
+      ],
+      [
+        "gradual_flow_reduction",
+        0.1,
+        0.175
+      ],
+      [
+        "reroute_via_secondary_main",
+        0.176,
+        0.273
+      ],
+      [
+        "emergency_full_shutdown",
+        0.274,
+        1.0
+      ]
+    ],
+    "regions_before_fix_no_gate_instant_closure_only": null
+  },
+  "M9_tpu_roofline": {
+    "peak_tops_model": 1.024,
+    "peak_tops_code": 1.024,
+    "runs": {
+      "N=10": {
+        "W_saturation_B_per_cycle": 640,
+        "T_ideal": 85024,
+        "by_width": {
+          "64": {
+            "sim_cycles": 849356,
+            "model_cycles": 850240.0,
+            "error_pct": -0.10397064358298834
+          },
+          "128": {
+            "sim_cycles": 424703,
+            "model_cycles": 425120.0,
+            "error_pct": -0.09808995107263832
+          },
+          "256": {
+            "sim_cycles": 212408,
+            "model_cycles": 212560.0,
+            "error_pct": -0.07150922092585622
+          },
+          "512": {
+            "sim_cycles": 106279,
+            "model_cycles": 106280.0,
+            "error_pct": -0.000940910801656003
+          },
+          "1024": {
+            "sim_cycles": 85024,
+            "model_cycles": 85024.0,
+            "error_pct": 0.0
+          }
+        }
+      },
+      "N=4": {
+        "W_saturation_B_per_cycle": 256,
+        "T_ideal": 212421,
+        "by_width": {
+          "64": {
+            "sim_cycles": 849033,
+            "model_cycles": 849684.0,
+            "error_pct": -0.07661671868600563
+          },
+          "128": {
+            "sim_cycles": 424655,
+            "model_cycles": 424842.0,
+            "error_pct": -0.04401636373051629
+          },
+          "256": {
+            "sim_cycles": 212421,
+            "model_cycles": 212421.0,
+            "error_pct": 0.0
+          },
+          "512": {
+            "sim_cycles": 212421,
+            "model_cycles": 212421.0,
+            "error_pct": 0.0
+          },
+          "1024": {
+            "sim_cycles": 212421,
+            "model_cycles": 212421.0,
+            "error_pct": 0.0
+          }
+        }
+      }
+    },
+    "below_cliff_W32": {
+      "credit_off": {
+        "sim_cycles": 2550804,
+        "model_cycles": 1700480,
+        "error_pct": 50.00493978170869,
+        "tasks_completed": 0,
+        "deadline_misses": 1000
+      },
+      "credit_on": {
+        "sim_cycles": 1698710,
+        "model_cycles": 1700480,
+        "error_pct": -0.10408825743319533,
+        "tasks_completed": 994,
+        "deadline_misses": 6
+      }
+    }
+  }
+}
