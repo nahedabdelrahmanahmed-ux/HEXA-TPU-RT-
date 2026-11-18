@@ -201,7 +201,20 @@ without touching `ADN_AE`, the MEC layer, or the TPU pipeline:
 To run against a real CSE:
 
 ```bash
-./deploy/run_acme_cse.sh          # installs + starts ACME on :8080 (headless, HTTP-only, IN-CSE)
+
+ # installs + starts ACME on :8080 (headless, HTTP-only, IN-CSE)
+
+cd deploy
+
+python -- version
+
+pip install acmecse
+
+bash run_acme_cse.sh
+
+
+#Open a new Terminal and run:
+
 python benchmarks/onem2m_mec_benchmark.py --cse-http-url http://127.0.0.1:8080
 ```
 
